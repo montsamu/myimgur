@@ -37,7 +37,7 @@ class UploadMailHandler(InboundMailHandler):
 
 application = webapp.WSGIApplication(
                                      [UploadMailHandler.mapping()],
-                                     debug=True)
+                                     debug=False)
 
 def main():
   run_wsgi_app(application)
