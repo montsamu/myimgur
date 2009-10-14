@@ -1,3 +1,5 @@
 
 imgur_key = "myimgurdevkey"
 
+mail_sender = "noreply@myapp.appspotmail.com"
+

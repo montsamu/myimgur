@@ -6,7 +6,7 @@ from google.appengine.api import mail
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-from config import imgur_key
+from config import imgur_key, mail_sender
 import imgur
 
 imgur_client = imgur.Client(imgur_key)
@@ -30,7 +30,7 @@ class UploadMailHandler(InboundMailHandler):
       d = imgur_client.upload_b64(p.payload)
       logging.info('Uploaded: %s' % str(d))
       ds.append(d)
-    mail.send_mail(sender="noreply-upload@myimgur.appspotmail.com",
+    mail.send_mail(sender=mail_sender,
                    to=msg.sender,
                    subject="re:"+msg.subject,
                    body=str(ds))
